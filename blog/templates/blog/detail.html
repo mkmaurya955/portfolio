@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Manish</title>
+    <title>{{ blog.title }}</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -41,49 +41,33 @@
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link" href="https://www.facebook.com/">Facebook <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="{% static 'manish_R.pdf' %}">Resume</a>
-      <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
+      <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
       
     </div>
   </div>
-</nav>
 </nav>
 
 
    
 <main role="main">
+  <div class="container">
+  <h1 class="text-center pt-3">{{ blog.title }}</h1>
+  <br/>
+ 
+  <p class="text-center">{{ blog.pub_date }}</p>
+  
+  <hr/>
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi! This is Manish</h1>
-      <p class="lead text-muted">This is manish maurya. I am a webdeveloper and i use python amd django framework for developing a webpage.</p>
-      <p>
-        <a href="mailto:mkmaurya955@gmail.com" class="btn btn-primary my-2">Email me</a>
-        
-      </p>
-      <img src="{% static 'manish.jpg' %}" width="500" height="300">
-    </div>
-  </section>
+  <img class="img-thumbnail" alt="Cinque Terre" src="{{ blog.image.url }}" >
+  <br>
+  <br>
+  <p class="text-center">{{ blog.body }}</p>
+  
+  <br>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url}}">
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-              
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-       </div>
-       </div
-
+</div>  
 </main>
+<hr>
 
 <footer class="text-muted">
   <div class="container text-center">
